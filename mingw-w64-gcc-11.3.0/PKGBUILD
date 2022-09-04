@@ -12,13 +12,13 @@ _threads="posix"
 _realname=gcc
 pkgbase=mingw-w64-${_realname}
 pkgnamesuffix=11.3.0
-pkgname=("${MINGW_PACKAGE_PREFIX}-${_realname}-${pkgnamesuffix}"
-         "${MINGW_PACKAGE_PREFIX}-${_realname}-libs-${pkgnamesuffix}"
-         "${MINGW_PACKAGE_PREFIX}-${_realname}-libgfortran-${pkgnamesuffix}"
-         "${MINGW_PACKAGE_PREFIX}-${_realname}-fortran-${pkgnamesuffix}"
-         $([[ "$_enable_ada" == "yes" ]] && echo "${MINGW_PACKAGE_PREFIX}-${_realname}-ada-${pkgnamesuffix}")
-         $([[ "$_enable_objc" == "yes" ]] && echo "${MINGW_PACKAGE_PREFIX}-${_realname}-objc-${pkgnamesuffix}")
-         $([[ "$_enable_jit" == "yes" ]] && echo "${MINGW_PACKAGE_PREFIX}-libgccjit-${pkgnamesuffix}")
+pkgname=("${MINGW_PACKAGE_PREFIX}-${_realname}"
+         "${MINGW_PACKAGE_PREFIX}-${_realname}-libs"
+         "${MINGW_PACKAGE_PREFIX}-${_realname}-libgfortran"
+         "${MINGW_PACKAGE_PREFIX}-${_realname}-fortran"
+         $([[ "$_enable_ada" == "yes" ]] && echo "${MINGW_PACKAGE_PREFIX}-${_realname}-ada")
+         $([[ "$_enable_objc" == "yes" ]] && echo "${MINGW_PACKAGE_PREFIX}-${_realname}-objc")
+         $([[ "$_enable_jit" == "yes" ]] && echo "${MINGW_PACKAGE_PREFIX}-libgccjit")
         )
 #_snapshot=20181214
 pkgver=11.3.0
