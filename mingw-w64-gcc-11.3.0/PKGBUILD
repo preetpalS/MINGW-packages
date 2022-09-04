@@ -11,13 +11,14 @@ _enable_jit=yes
 _threads="posix"
 _realname=gcc
 pkgbase=mingw-w64-${_realname}
-pkgname=("${MINGW_PACKAGE_PREFIX}-${_realname}"
-         "${MINGW_PACKAGE_PREFIX}-${_realname}-libs"
-         "${MINGW_PACKAGE_PREFIX}-${_realname}-libgfortran"
-         "${MINGW_PACKAGE_PREFIX}-${_realname}-fortran"
-         $([[ "$_enable_ada" == "yes" ]] && echo "${MINGW_PACKAGE_PREFIX}-${_realname}-ada")
-         $([[ "$_enable_objc" == "yes" ]] && echo "${MINGW_PACKAGE_PREFIX}-${_realname}-objc")
-         $([[ "$_enable_jit" == "yes" ]] && echo "${MINGW_PACKAGE_PREFIX}-libgccjit")
+pkgnamesuffix=11.3.0
+pkgname=("${MINGW_PACKAGE_PREFIX}-${_realname}-${pkgnamesuffix}"
+         "${MINGW_PACKAGE_PREFIX}-${_realname}-libs-${pkgnamesuffix}"
+         "${MINGW_PACKAGE_PREFIX}-${_realname}-libgfortran-${pkgnamesuffix}"
+         "${MINGW_PACKAGE_PREFIX}-${_realname}-fortran-${pkgnamesuffix}"
+         $([[ "$_enable_ada" == "yes" ]] && echo "${MINGW_PACKAGE_PREFIX}-${_realname}-ada-${pkgnamesuffix}")
+         $([[ "$_enable_objc" == "yes" ]] && echo "${MINGW_PACKAGE_PREFIX}-${_realname}-objc-${pkgnamesuffix}")
+         $([[ "$_enable_jit" == "yes" ]] && echo "${MINGW_PACKAGE_PREFIX}-libgccjit-${pkgnamesuffix}")
         )
 #_snapshot=20181214
 pkgver=11.3.0
@@ -25,7 +26,7 @@ pkgver=11.3.0
 #_sourcedir=${_realname}-${_majorver}-${_snapshot}
 _sourcedir=${_realname}-${pkgver}
 pkgrel=2
-pkgdesc="GCC for the MinGW-w64"
+pkgdesc="GCC 11.3.0 for the MinGW-w64"
 arch=('any')
 mingw_arch=('mingw32' 'mingw64' 'ucrt64')
 url="https://gcc.gnu.org"
@@ -210,6 +211,7 @@ build() {
   ../${_sourcedir}/configure \
     --prefix=${MINGW_PREFIX} \
     --with-local-prefix=${MINGW_PREFIX}/local \
+    --program-suffix=-11.3.0 \
     --build=${MINGW_CHOST} \
     --host=${MINGW_CHOST} \
     --target=${MINGW_CHOST} \
