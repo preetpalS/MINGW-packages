@@ -5,7 +5,7 @@
 # Contributor: wirx6 <wirx654@gmail.com>
 # Contributor: Kirill Müller <krlmlr@mailbox.org>
 
-_enable_ada=yes
+_enable_ada=no
 _enable_objc=yes
 _enable_jit=yes
 _threads="posix"
@@ -182,7 +182,7 @@ build() {
     ;;
   esac
 
-  local _languages="c,lto,c++,fortran"
+  local _languages="c,d,lto,c++,fortran"
   if [ "$_enable_ada" == "yes" ]; then
     _languages+=",ada"
   fi
@@ -230,6 +230,7 @@ build() {
     --disable-libstdcxx-pch \
     --enable-lto \
     --enable-libgomp \
+    --enable-libphobos \
     --disable-multilib \
     --disable-rpath \
     --disable-win32-registry \
