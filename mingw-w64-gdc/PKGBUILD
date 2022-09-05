@@ -222,7 +222,6 @@ build() {
     --enable-languages=${_languages} \
     --enable-shared --enable-static \
     --enable-libatomic \
-    --enable-threads=${_threads} \
     --enable-graphite \
     --enable-fully-dynamic-string \
     --enable-libstdcxx-filesystem-ts \
