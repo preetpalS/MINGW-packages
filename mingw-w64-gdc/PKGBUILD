@@ -6,8 +6,8 @@
 # Contributor: Kirill Müller <krlmlr@mailbox.org>
 
 _enable_ada=no
-_enable_objc=yes
-_enable_jit=yes
+_enable_objc=no
+_enable_jit=no
 _threads="posix"
 _realname=gcc
 pkgbase=mingw-w64-${_realname}
@@ -182,7 +182,7 @@ build() {
     ;;
   esac
 
-  local _languages="c,d,lto,c++,fortran"
+  local _languages="d"
   if [ "$_enable_ada" == "yes" ]; then
     _languages+=",ada"
   fi
