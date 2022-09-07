@@ -182,7 +182,7 @@ build() {
     ;;
   esac
 
-  local _languages="d"
+  local _languages="c,d,lto,c++,fortran"
   if [ "$_enable_ada" == "yes" ]; then
     _languages+=",ada"
   fi
@@ -222,6 +222,7 @@ build() {
     --enable-languages=${_languages} \
     --enable-shared --enable-static \
     --enable-libatomic \
+    --enable-threads=${_threads} \
     --enable-graphite \
     --enable-fully-dynamic-string \
     --enable-libstdcxx-filesystem-ts \
@@ -229,7 +230,6 @@ build() {
     --disable-libstdcxx-pch \
     --enable-lto \
     --enable-libgomp \
-    --enable-libphobos \
     --disable-multilib \
     --disable-rpath \
     --disable-win32-registry \
